@@ -67,7 +67,7 @@ public class Main {
                 }
                     if (heroesAttackType[i].equals("Witcher")) {
                         Random random = new Random();
-                        int reviveChance = random.nextInt(2); // 50% шанс оживить первого погибшего героя
+                        int reviveChance = random.nextInt(2);
                         if (reviveChance == 0) {
                             for (int j = 0; j < heroesHealth.length; j++) {
                                 if (heroesHealth[j] == 0) {
