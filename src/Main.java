@@ -12,13 +12,13 @@ public class Main {
         public static void medicHeal() {
             for (int i = 0; i < heroesHealth.length - 1; i++) {
                 if (heroesAttackType[i].equals("Healer") && heroesHealth[i] < 100 && heroesHealth[i] > 0 ) {
-                    if ( i!= 3) {
+//                    if ( i!= 3) {
                         Random random = new Random();
                         int healAmount = random.nextInt(51) + 50;
                         heroesHealth[i] += healAmount;
                         System.out.println("Medic healed " + heroesAttackType[i] + " for " + healAmount + " health points.");
                         break;
-                    }
+//                    }
                 }
             }
         }
@@ -108,7 +108,7 @@ public class Main {
                     damage = heroesDamage[i] * coeff;
                     System.out.println("Critical damage: " + damage);
                 }
-                if (heroesAttackType[i].equals("Healer") && i != 3) {
+                if (heroesAttackType[i].equals("Healer") ) {
                     medicHeal();
                     damage = 0;
                 }
