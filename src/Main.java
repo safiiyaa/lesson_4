@@ -8,21 +8,23 @@ public class Main {
     public static int[] heroesDamage = {20, 15, 10, 0, 5, 12, 0, 25};
     public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic,", "Healer", "Air", " Dodger", "Witcher", " Thor"};
     public static int roundNumber = 0;
-    public static void medicHeal() {
-        for (int i = 0; i < heroesHealth.length - 1; i++) {
-            if (heroesHealth[i] < 100 && heroesHealth[i] > 0) {
-                Random random = new Random();
-                int healAmount = random.nextInt(51) + 50;
-                heroesHealth[i] += healAmount;
-                System.out.println("Medic healed " + heroesAttackType[i] + " for " + healAmount + " health points.");
-                break;
+
+        public static void medicHeal() {
+            for (int i = 0; i < heroesHealth.length - 1; i++) {
+                if (heroesAttackType[i].equals("Healer") && heroesHealth[i] < 100 && heroesHealth[i] > 0 && i != 3) {
+                    Random random = new Random();
+                    int healAmount = random.nextInt(51) + 50;
+                    heroesHealth[i] += healAmount;
+                    System.out.println("Medic healed " + heroesAttackType[i] + " for " + healAmount + " health points.");
+                    break;
+                }
             }
         }
-    }
 
 
 
-    public static void main(String[] args) {
+
+        public static void main(String[] args) {
         printStatistics();
         while (!isGameOver()) {
             playRound();
@@ -104,7 +106,7 @@ public class Main {
                     damage = heroesDamage[i] * coeff;
                     System.out.println("Critical damage: " + damage);
                 }
-                if (heroesAttackType[i].equals("Healer")) {
+                if (heroesAttackType[i].equals("Healer") && i != 3) {
                     medicHeal();
                     damage = 0;
                 }
